@@ -14,7 +14,7 @@ $(document).ready(function(){
 jQuery.fn.sselect = function(options){
   var settings = jQuery.extend({
     create:     function(selected, select, block){},
-    select:     function(selected){}
+    select:     function(selected, block){}
   },options);
   $(document).unbind().bind('click', function(e){
     if ($(e.target).closest('.sselect').length) {
@@ -58,17 +58,17 @@ jQuery.fn.sselect = function(options){
     } else {
       list.html(createUl($this, 0));
     }
-    settings.create($(':selected', $this), $this, $sselect);
     function selected(one) {
       var selected = $(':selected', $this);
       txt.html(selected.text());
       $('.selected', list).removeClass('selected');
       $('a[data-index="' + selected.data('index') + '"]', list).parent().addClass('selected');
       if (!one) {
-        settings.select(selected);
+        settings.select(selected, $sselect);
       }
     }
     selected(true);
+    settings.create($(':selected', $this), $this, $sselect);
     $this.change(function () {
       selected();
     });
