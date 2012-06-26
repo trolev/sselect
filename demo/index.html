@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--[if IE 6]><html class="no-js ie6 lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js ie7 lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8 lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Главная</title>
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link rel="stylesheet" type="text/css" href="media/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="media/css/style.css">
+</head>
+<body>
+  <div id="demo">
+    <div class="b-sselect js-city">
+      <select>
+        <option>Страна</option>
+        <option>Россия</option>
+        <option>Украина</option>
+        <option>Беларусия</option>
+      </select>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="b-sselect js-street"></div>
+  </div>
+  <script type="text/javascript"  src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script type="text/javascript" src="media/js/jquery-1.7.1.min.js"><\/script>')</script>
+  <script type="text/javascript" src="media/js/jquery.sselect.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      var demo = "<select><option>Улица 1</option><option>Улица 2</option><option>Улица 3</option><option>Улица 4</option><option>Улица 5</option></select>"
+      var demo2 = "<select><option>2 Улица 1</option><option>2 Улица 2</option><option>2 Улица 3</option><option>2 Улица 4</option><option>2 Улица 5</option></select>"
+      $('.b-sselect select').sselect();
+      n = 1
+      $('.js-city select').change(function() {
+        if (n == 1) {
+          b = demo
+          n = 0
+        } else {
+          b = demo2
+          n = 1
+        }
+        var sel = $('.js-street select');
+        if (sel.length) {
+          sel.after(b);
+          sel.remove();
+        } else {
+          $('.js-street').append(b);
+        }
+        $('.js-street select').sselect();
+      });
+    });
+  </script>
+</body>
+</html>
