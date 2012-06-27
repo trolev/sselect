@@ -5,57 +5,120 @@
 <!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Главная</title>
+  <title>jQuery Style Select plugin. Examples.</title>
   <meta name="Keywords" content="">
   <meta name="Description" content="">
-  <link rel="stylesheet" type="text/css" href="media/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="media/css/style.css">
+  <link rel="stylesheet" type="text/css" href="media/style.css">
 </head>
 <body>
   <div id="demo">
-    <div class="b-sselect js-city">
-      <select>
-        <option>Страна</option>
-        <option>Россия</option>
-        <option>Украина</option>
-        <option>Беларусия</option>
-      </select>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="b-sselect js-street"></div>
+    <h1>jQuery Style Select plugin.</h1>
+    <h2>Плагин для стилизации select.</h2>
+    <section class="section center">
+      <h3>Быстрый старт</h3>
+      <div class="b-sselect js-select1">
+        <select>
+          <option>Moscow</option>
+          <option>St. Petersburg</option>
+          <option>Yaroslavl</option>
+          <option>Voronezh</option>
+          <option>Vologda</option>
+          <option>Kiev</option>
+          <option>Kharkiv</option>
+          <option>Donetsk</option>
+        </select>
+      </div>
+      <div class="code">
+        <ul>
+          <li><strong>html:</strong></li>
+          <li>&lt;select&gt;</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;Moscow&lt;/option&gt;</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;St.&nbsp;Petersburg&lt;/option&gt;</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;...</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;Donetsk&lt;/option&gt;</li>
+          <li>&lt;/select&gt;&nbsp;</li>
+          <li><strong>JS:</strong></li>
+          <li>$('.js-select1 select').sselect();</li>
+        </ul>
+      </div>
+    </section>
+    <section class="section center">
+      <h3>Callback</h3>
+      <div class="b-sselect js-select2">
+        <select>
+          <option>Moscow</option>
+          <option>St. Petersburg</option>
+          <option>Yaroslavl</option>
+          <option>Voronezh</option>
+          <option>Vologda</option>
+          <option>Kiev</option>
+          <option>Kharkiv</option>
+          <option>Donetsk</option>
+        </select>
+        <input type="button" value="Go!" class="js-go">
+      </div>
+      <div class="code">
+        <ul>
+          <li><strong>html:</strong></li>
+          <li>&lt;select&gt;</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;Moscow&lt;/option&gt;</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;St.&nbsp;Petersburg&lt;/option&gt;</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;...</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;Donetsk&lt;/option&gt;</li>
+          <li>&lt;/select&gt;&nbsp;</li>
+          <li><strong>JS:</strong></li>
+          <li>$('.js-go').click(function()&nbsp;{</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;$(this).hide();</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;$(this).prev('select').sselect({&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;create:&nbsp;function(selected){</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert('create');</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select:&nbsp;function(selected){</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(selected.text());</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;});</li>
+          <li>});</li>
+        </ul>
+      </div>
+    </section>
+    <section class="section center">
+      <h3>Reset</h3>
+      <div class="b-sselect js-select3">
+        <select>
+          <option>Moscow</option>
+          <option>St. Petersburg</option>
+          <option>Yaroslavl</option>
+          <option>Voronezh</option>
+          <option>Vologda</option>
+          <option>Kiev</option>
+          <option>Kharkiv</option>
+          <option>Donetsk</option>
+        </select>
+      </div>
+      <input type="button" value="Delete 1 option" class="js-reset">
+      <div class="code margin-top">
+        <ul>
+          <li><strong>html:</strong></li>
+          <li>&lt;select&gt;</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;Moscow&lt;/option&gt;</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;St.&nbsp;Petersburg&lt;/option&gt;</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;...</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;Donetsk&lt;/option&gt;</li>
+          <li>&lt;/select&gt;&nbsp;</li>
+          <li><strong>JS:</strong></li>
+          <li>$('.js-select3&nbsp;select').sselect();</li>
+          <li>$('.js-reset').click(function()&nbsp;{</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;select&nbsp;=&nbsp;$('select',&nbsp;$(this).prev());</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;$('option:last',&nbsp;select).remove();</li>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;<i>select.sselect();</i></li>
+          <li>});</li>
+        </ul>
+      </div>
+    </section>
   </div>
   <script type="text/javascript"  src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script type="text/javascript" src="media/js/jquery-1.7.1.min.js"><\/script>')</script>
-  <script type="text/javascript" src="media/js/jquery.sselect.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function(){
-      var demo = "<select><option>Улица 1</option><option>Улица 2</option><option>Улица 3</option><option>Улица 4</option><option>Улица 5</option></select>"
-      var demo2 = "<select><option>2 Улица 1</option><option>2 Улица 2</option><option>2 Улица 3</option><option>2 Улица 4</option><option>2 Улица 5</option></select>"
-      $('.b-sselect select').sselect();
-      n = 1
-      $('.js-city select').change(function() {
-        if (n == 1) {
-          b = demo
-          n = 0
-        } else {
-          b = demo2
-          n = 1
-        }
-        var sel = $('.js-street select');
-        if (sel.length) {
-          sel.after(b);
-          sel.remove();
-        } else {
-          $('.js-street').append(b);
-        }
-        $('.js-street select').sselect();
-      });
-    });
-  </script>
+  <script>window.jQuery || document.write('<script type="text/javascript" src="media/jquery-1.7.1.min.js"><\/script>')</script>
+  <script type="text/javascript" src="media/jquery.sselect.js"></script>
+  <script type="text/javascript" src="media/demo.js"></script>
 </body>
 </html>

@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-size: 12px;
+  font-family: Verdana, 'Geneva CY', 'DejaVu Sans', sans-serif;
+  color: #444;
+}
+#demo {
+  padding: 50px;
+  margin: 0 auto;
+  width: 700px;
+}
+#demo h1,
+#demo h2 {
+  font-size: 16px;
+  text-align: center;
+}
+#demo h1 {
+  font-size: 19px;
+}
+#demo h2 {
+  margin-bottom: 30px;
+}
+#demo h3 {
+  color: #ddd;
+  margin-bottom: 14px;
+  text-align: left;
+}
+.section {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+.section.center {
+  text-align: center;
+}
+.section.center .sselect {
+  margin: 0 auto;
+}
+.code {
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+  text-align: left;
+}
+.code ul {
+  list-style: none;
+}
+.code li {
+  padding: 3px 13px;
+}
+.code li.tw {
+  background: #f3f2f2;
+}
+.code li:hover {
+  background: #e5e5e5;
+}
+.b-sselect select,
+.b-sselect {
+  margin-bottom: 15px;
+}
+.margin-top {
+  margin-top: 24px;
+}
+.sselect {
+  position: relative;
+  width: 190px;
+  text-align: left;
+}
+.sselect-text {
+  height: 20px;
+}
+.sselect-text .txt {
+  display: block;
+  height: 18px;
+  line-height: 18px;
+  border: 1px solid #bcbcbc;
+  background-color: #e7e7e7;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#fff), to(#e7e7e7));
+  background: -webkit-linear-gradient(#fff, #e7e7e7);
+  background: -moz-linear-gradient(#fff, #e7e7e7);
+  background: -ms-linear-gradient(#fff, #e7e7e7);
+  background: -o-linear-gradient(#fff, #e7e7e7);
+  background: linear-gradient(#fff, #e7e7e7);
+  padding: 0 4px;
+}
+.sselect-text .icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 19px;
+  height: 20px;
+  background: url('sselect.png') no-repeat 0 0;
+}
+.sselect-list {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  display: none;
+  width: 100%;
+  background-color: #e7e7e7;
+}
+.sselect-open .sselect-list {
+  display: block;
+}
+.sselect-ul {
+  list-style: none;
+  border: 1px solid #bcbcbc;
+  border-top: none;
+}
+.sselect-ul a {
+  display: block;
+  padding: 2px 4px;
+  border: 1px solid #e7e7e7;
+  text-decoration: none;
+  color: #333;
+}
+.sselect-ul a:hover {
+  background: #eff0f0;
+}
+.sselect-ul .selected a {
+  background: #0d87e5;
+  color: #e6f1fa;
+}
