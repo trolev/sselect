@@ -11,27 +11,6 @@ $(document).ready(function(){
 });
 */
 
-function create($input) {
-  $input.after('<div class="sselect"><div class="sselect-text"><span class="txt"></span><i class="icon"></i></div><div class="sselect-list"></div></div>');
-}
-function createUl($input){
-  var l = "<ul class='sselect-ul'>";
-  $('option', $input).each(function(){
-    var $this = $(this);
-    var option = $this.text();
-    l += "<li><a href='#'>" + option + "</a></li>"
-  });
-  l += "</ul>";
-  return l;
-}
-function fun_selected($input, $txt, $list) {
-  var selected = $(':selected', $input);
-  var index = $('option', $input).index(selected);
-  $txt.html(selected.text());
-  $('.selected', $list).removeClass('selected');
-  $('li', $list).eq(index).addClass('selected');
-  $('.sselect-open').removeClass('sselect-open');
-}
 jQuery.fn.sselect = function(options){
   var settings = jQuery.extend({
     create:     function(selected){},
@@ -78,10 +57,31 @@ jQuery.fn.sselect = function(options){
     });
   });
 };
+function create($input) {
+  $input.after('<div class="sselect"><div class="sselect-text"><span class="txt"></span><i class="icon"></i></div><div class="sselect-list"></div></div>');
+}
+function createUl($input){
+  var l = "<ul class='sselect-ul'>";
+  $('option', $input).each(function(){
+    var $this = $(this);
+    var option = $this.text();
+    l += "<li><a href='#'>" + option + "</a></li>"
+  });
+  l += "</ul>";
+  return l;
+}
+function fun_selected($input, $txt, $list) {
+  var selected = $(':selected', $input);
+  var index = $('option', $input).index(selected);
+  $txt.html(selected.text());
+  $('.selected', $list).removeClass('selected');
+  $('li', $list).eq(index).addClass('selected');
+  $('.sselect-open').removeClass('sselect-open');
+}
 $(document).unbind().bind('click', function(e){
   if ($(e.target).closest('.sselect').length) {
     return;
   } else {
     $('.sselect-open').removeClass('sselect-open');
   }
-});  
+});
