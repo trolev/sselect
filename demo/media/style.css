@@ -63,6 +63,9 @@ body {
 .margin-top {
   margin-top: 24px;
 }
+select {
+  display: inline !important;
+}
 .sselect {
   position: relative;
   width: 190px;

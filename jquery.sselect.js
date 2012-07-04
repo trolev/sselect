@@ -55,6 +55,7 @@ jQuery.fn.sselect = function(options){
       $input.change();
       return false;
     });
+    $input.hide();
   });
 };
 function create($input) {
