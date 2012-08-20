@@ -1,6 +1,6 @@
 /*!
 Sselect.
-Version: 1.1 (05.07.2012)
+Version: 1.2 (20.08.2012)
 https://github.com/trolev/sslect/
 
 $(document).ready(function(){
@@ -13,8 +13,8 @@ $(document).ready(function(){
 
 jQuery.fn.sselect = function(options){
   var settings = jQuery.extend({
-    create:     function(selected){},
-    select:     function(selected){}
+    create:     function(selected, block){},
+    select:     function(selected, block){}
   },options);
   this.each(function() {
     var $input = $(this);
@@ -45,7 +45,9 @@ jQuery.fn.sselect = function(options){
       ul += createUl($input)
     }
     $list.html(ul);
-    settings.create($(':selected', $input));
+    $('li:first', $sselect).addClass('first');
+    $('li:last', $sselect).addClass('last');
+    settings.create($(':selected', $input), $list);
     $stxt.unbind('click.sselect').bind('click.sselect',function() {
       $sselect.toggleClass('sselect-open');
       $('.sselect-open').not($sselect).removeClass('sselect-open');
@@ -54,7 +56,7 @@ jQuery.fn.sselect = function(options){
     fun_selected($input, $txt, $list);
     $input.unbind('change.sselect').bind('change.sselect', function () {
       fun_selected($input, $txt, $list);
-      settings.select($(':selected', $input));
+      settings.select($(':selected', $input), $list);
     });
     $('a', $list).unbind('click.sselect').bind('click.sselect', function(e){
       var index = $('a', $list).index($(e.target));
