@@ -51,7 +51,7 @@ jQuery.fn.sselect = function(options){
     $stxt.unbind('click.sselect').bind('click.sselect',function() {
       $sselect.toggleClass('sselect-open');
       $('.sselect-open').not($sselect).removeClass('sselect-open');
-      return false; 
+      return false;
     });
     fun_selected($input, $txt, $list);
     $input.unbind('change.sselect').bind('change.sselect', function () {
@@ -60,7 +60,7 @@ jQuery.fn.sselect = function(options){
     });
     $('a', $list).unbind('click.sselect').bind('click.sselect', function(e){
       var index = $('a', $list).index($(e.target));
-      $('option', $input).eq(index).attr("selected", "selected");
+      $('option', $input).eq(index).prop("selected", "selected");
       $input.change();
       return false;
     });
